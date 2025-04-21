@@ -24,25 +24,13 @@ This document outlines the implementation plan for the Skill Learning App, based
 - [x] **Task 1.2: Project Initialization**
     - [x] Create a new Next.js project (`npx create-next-app@latest`).
     - [x] Set up Git repository and version control.
-- [x] **Task 1.3: Supabase Setup**
-    - [x] Create a new Supabase project.
-    - [x] Define initial database schema:
-        - [x] `users` (leveraging Supabase Auth)
-        - [x] `skills` (id, name, description)
-        - [x] `user_profiles` (user_id, preferences, etc.)
-        - [x] `curricula` (id, user_id, skill_id, experience_level, generated_data, created_at)
-        - [x] `curriculum_modules` (id, curriculum_id, title, order)
-        - [x] `curriculum_steps` (id, module_id, title, description, resource_url, order, is_complete)
-        - [x] `assignments` (id, step_id, user_id, prompt, generated_content, submitted_content, status)
-        - [x] `user_progress` (user_id, step_id, completed_at)
-    - [x] Configure Supabase Authentication settings.
 - [x] **Task 1.4: API Key Acquisition**
     - [x] Obtain API keys for Google Gemini.
     - [x] Review Gemini API documentation and usage limits.
 - [ ] **Task 1.5: Basic Integration**
     - [x] Install Supabase client library (`@supabase/supabase-js`) in the Next.js project.
     - [x] Configure environment variables for Supabase URL and keys.
-    - [x] Establish basic connectivity between Next.js and Supabase.
+    - [ ] Establish basic connectivity between Next.js and Supabase.
 
 ---
 
@@ -50,24 +38,24 @@ This document outlines the implementation plan for the Skill Learning App, based
 
 **Objective:** Implement user management and the core curriculum generation functionality.
 
-- [x] **Task 2.1: User Authentication**
-    - [x] Implement frontend UI for user registration and login using Supabase Auth UI components or custom forms.
-    - [x] Set up protected routes/pages in Next.js.
-    - [x] Handle user sessions and state management.
-- [x] **Task 2.2: Skill & Experience Selection UI**
-    - [x] Create frontend components for users to input the desired skill.
-    - [x] Implement UI for selecting experience level (Beginner, Intermediate, Advanced, Custom).
-- [x] **Task 2.3: Backend Curriculum Generation API**
-    - [x] Create a Next.js API route (`/api/generate-curriculum`).
-    - [x] Accept `skill` and `experienceLevel` (or `quizResults`) as input.
-    - [x] **Crucial:** Develop robust prompt engineering strategies for the Gemini API call to request structured curriculum data (JSON preferred) based on input, emphasizing free resources.
-    - [x] Handle potential errors from the Gemini API.
+- [ ] **Task 2.1: User Authentication**
+    - [ ] Implement frontend UI for user registration and login using Supabase Auth UI components or custom forms.
+    - [ ] Set up protected routes/pages in Next.js.
+    - [ ] Handle user sessions and state management.
+- [ ] **Task 2.2: Skill & Experience Selection UI**
+    - [ ] Create frontend components for users to input the desired skill.
+    - [ ] Implement UI for selecting experience level (Beginner, Intermediate, Advanced, Custom).
+- [ ] **Task 2.3: Backend Curriculum Generation API**
+    - [ ] Create a Next.js API route (`/api/generate-curriculum`).
+    - [ ] Accept `skill` and `experienceLevel` (or `quizResults`) as input.
+    - [ ] **Crucial:** Develop robust prompt engineering strategies for the Gemini API call to request structured curriculum data (JSON preferred) based on input, emphasizing free resources.
+    - [ ] Handle potential errors from the Gemini API.
 - [ ] **Task 2.4: Gemini API Integration (Backend)**
-    - [x] Install necessary libraries for making API calls (e.g., `axios` or `node-fetch`).
-    - [x] Implement the call to the Gemini API within the backend route using the obtained API key.
-    - [x] Parse the Gemini response (expecting structured JSON).
-- [x] **Task 2.5: Curriculum Display UI**
-    - [x] Create frontend components to display the generated curriculum (modules, steps, resource links) fetched from the backend.
+    - [ ] Install necessary libraries for making API calls (e.g., `axios` or `node-fetch`).
+    - [ ] Implement the call to the Gemini API within the backend route using the obtained API key. **Note:** All Gemini API calls should be routed through the proxy server at `https://proxy-chi-plum.vercel.app/`. See `https://github.com/pienaaranker/proxy` for details.
+    - [ ] Parse the Gemini response (expecting structured JSON).
+- [ ] **Task 2.5: Curriculum Display UI**
+    - [ ] Create frontend components to display the generated curriculum (modules, steps, resource links) fetched from the backend.
     - [ ] Store the generated curriculum in Supabase, linking it to the user and skill.
 
 ---
@@ -83,13 +71,13 @@ This document outlines the implementation plan for the Skill Learning App, based
     - [ ] Develop frontend components to visually represent progress (e.g., checkmarks on steps, progress bars per module/curriculum).
     - [ ] Create a basic User Dashboard page summarizing active curricula and overall progress.
 - [ ] **Task 3.3: Backend Assignment Generation API**
-    - [x] Create a Next.js API route (`/api/generate-assignment`).
-    - [x] Accept context (e.g., `step_id` or `module_id`) as input.
-    - [x] Develop prompts for Gemini requesting relevant practice exercises or assignments based on the learning context.
-    - [x] Handle Gemini API calls and responses.
+    - [ ] Create a Next.js API route (`/api/generate-assignment`).
+    - [ ] Accept context (e.g., `step_id` or `module_id`) as input.
+    - [ ] Develop prompts for Gemini requesting relevant practice exercises or assignments based on the learning context.
+    - [ ] Handle Gemini API calls and responses. **Note:** Ensure these calls also use the proxy server `https://proxy-chi-plum.vercel.app/`.
 - [ ] **Task 3.4: Assignment Display UI**
-    - [x] Create frontend components to allow users to request an assignment for a specific step/module.
-    - [x] Display the generated assignment content received from the backend.
+    - [ ] Create frontend components to allow users to request an assignment for a specific step/module.
+    - [ ] Display the generated assignment content received from the backend.
     - [ ] Store generated assignments in Supabase, linking it to the user and skill.
 
 ---
@@ -98,10 +86,10 @@ This document outlines the implementation plan for the Skill Learning App, based
 
 **Objective:** Enhance the user experience with custom features and refine existing ones.
 
-- [x] **Task 4.1: Custom Experience Level Quiz**
-    - [x] Design the logic and questions for the custom experience assessment quiz. This likely requires further LLM prompting or a predefined question bank structure.
-    - [x] Implement the quiz UI on the frontend.
-    - [x] Integrate quiz results into the curriculum generation prompt context (Task 2.3).
+- [ ] **Task 4.1: Custom Experience Level Quiz**
+    - [ ] Design the logic and questions for the custom experience assessment quiz. This likely requires further LLM prompting or a predefined question bank structure.
+    - [ ] Implement the quiz UI on the frontend.
+    - [ ] Integrate quiz results into the curriculum generation prompt context (Task 2.3).
 - [ ] **Task 4.2: Resource Link Validation & Handling**
     - [ ] Implement basic checks or allow user reporting for broken/incorrect resource links.
     - [ ] Refine prompts to improve the quality and relevance of free resources found by Gemini.

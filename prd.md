@@ -25,9 +25,9 @@ graph TD
 
 
 Frontend (Next.js): Handles user interface, user input (skill selection, experience level), displaying the curriculum, learning steps, assignments, and progress. Manages user authentication state.
-Backend (Next.js API Routes): Acts as the intermediary between the frontend, database, and LLM. Handles user registration/login, fetching/saving user progress, sending requests to the Gemini API, and processing responses before sending them to the frontend.
+Backend (Next.js API Routes): Acts as the intermediary between the frontend, database, and LLM. Handles user registration/login, fetching/saving user progress, sending requests to the Gemini API via the proxy server (`https://proxy-chi-plum.vercel.app/`), and processing responses before sending them to the frontend.
 Supabase: Stores user data (profiles, skills being learned, progress, saved curricula, completed assignments). Handles user authentication securely.
-Google Gemini API: Receives requests from the backend to perform web searches for learning materials, generate structured curricula, and create custom assignments.
+Google Gemini API: Receives requests from the backend (via the proxy) to perform web searches for learning materials, generate structured curricula, and create custom assignments.
 Web Search / Data Sources: Represents the external websites, documentation, tutorials, videos, etc., that Gemini will search to find relevant free content.
 5. Role of the LLM (Gemini)
 Gemini will be the core intelligence of the application. Its primary functions will include:
@@ -47,7 +47,7 @@ Skill Selection and Experience Level: Create a user interface for users to input
 Curriculum Generation Flow:
 User requests a curriculum for a skill.
 Frontend sends a request to the backend API, including the selected skill and either the predefined experience level or the results from the custom quiz.
-Backend calls the Gemini API with a carefully crafted prompt including the skill and experience level (or quiz results for custom).
+Backend calls the Gemini API (through the proxy at `https://proxy-chi-plum.vercel.app/`) with a carefully crafted prompt including the skill and experience level (or quiz results for custom).
 Gemini searches the web and generates a structured curriculum (e.g., an array of modules, each with steps and resource links).
 Backend receives the curriculum data, potentially saves it to Supabase, and sends it to the frontend.
 Frontend displays the curriculum to the user.
@@ -55,7 +55,7 @@ Step-by-Step Learning: Display the curriculum steps clearly. Allow users to mark
 Progress Tracking: Store user progress (which skills they are learning, which steps are completed) in Supabase. Display progress visually on the frontend (e.g., progress bars).
 Assignment Generation:
 When a user is ready for an assignment for a specific module/step, the frontend requests one from the backend.
-Backend calls the Gemini API with a prompt requesting an assignment based on the completed learning material.
+Backend calls the Gemini API (through the proxy at `https://proxy-chi-plum.vercel.app/`) with a prompt requesting an assignment based on the completed learning material.
 Gemini generates a unique assignment.
 Backend sends the assignment to the frontend for display.
 Consider allowing users to submit their completed assignments (optional, could be text input or file upload) and potentially use Gemini to provide feedback (more advanced).
