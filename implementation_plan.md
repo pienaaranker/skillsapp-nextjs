@@ -1,6 +1,6 @@
-# Skill Learning App: Implementation Plan
+# Modulern: Implementation Plan
 
-This document outlines the implementation plan for the Skill Learning App, based on the provided architecture and requirements document. Check off tasks as they are completed.
+This document outlines the implementation plan for the Modulern, based on the provided architecture and requirements document. Check off tasks as they are completed.
 
 **Goal:** To develop a web application that uses Google Gemini to generate personalized learning curricula from free online resources.
 

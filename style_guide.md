@@ -1,8 +1,8 @@
-# Skill Learning App: Style Guide
+# Modulern: Style Guide
 
 ## 1. Core Principles
 
-The visual design of the Skill Learning App should embody the following principles:
+The visual design of the Modulern should embody the following principles:
 
 * **Clarity:** Information should be presented clearly and logically. Users should easily understand where they are, what to do next, and how they are progressing.
 * **Motivation:** The design should feel encouraging and positive, celebrating progress and making learning feel achievable and exciting.
@@ -118,4 +118,4 @@ Apply consistent styling across common UI elements. Use rounded corners for a so
 
 ---
 
-This style guide provides a foundation for building a visually appealing, consistent, and user-friendly Skill Learning App. Refer back to it during development and design iterations.
+This style guide provides a foundation for building a visually appealing, consistent, and user-friendly Modulern. Refer back to it during development and design iterations.

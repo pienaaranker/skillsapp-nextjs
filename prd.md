@@ -1,4 +1,4 @@
-Skill Learning App: Architecture and Plan
+Modulern: Architecture and Plan
 1. Problem Statement
 Learning a new skill online without enrolling in paid courses often involves sifting through vast amounts of unorganized, free content. Finding a structured, high-quality learning path tailored to an individual's experience level is challenging and time-consuming.
 2. Proposed Solution
