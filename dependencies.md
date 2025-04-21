@@ -12,7 +12,7 @@ This file tracks the key libraries and tools used in the Modulern project and th
 
 *   **Firebase:** Backend-as-a-Service platform providing:
     *   **Authentication:** Handling user sign-up, sign-in, and session management (using Firebase Auth).
-    *   **Firestore Database:** (Potentially used later) NoSQL database for storing user data, curricula, progress, etc.
+    *   **Firestore Database:** NoSQL database for storing user data, curricula, progress, assignments, etc.
     *   **Storage:** (Potentially used later for assignment submissions).
 *   **firebase:** Official JavaScript SDK for interacting with Firebase services.
 
